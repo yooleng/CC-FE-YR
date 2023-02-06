@@ -6,6 +6,7 @@ export default function test() {
     <div>
       <div>철수</div>
       <button>클릭하세요</button>
+      <img src="/vercel.svg" />
     </div>
   );
 }

@@ -10,13 +10,30 @@ import {
   ContentsBox,
   QuestionsList,
   QuestionsListBox,
+  TitleBox,
+  UserID,
+  UserProfile,
+  UserPicture,
+  SearchIcon,
 } from "@/styles/emotion";
 
 export default function EatsRoadPage() {
   return (
     <div>
       <Box>
-        <Title>마이</Title>
+        <SearchIcon>
+          <img src="/search.png" />
+        </SearchIcon>
+        <TitleBox>
+          <Title>마이</Title>
+          <UserProfile>
+            <UserPicture>
+              <img src="/picture.png" />
+            </UserPicture>
+            <UserID>임정아</UserID>
+            <img src="/arrow.png" />
+          </UserProfile>
+        </TitleBox>
         <NoticeBox>
           <Notice>공지사항</Notice>
           <Event>이벤트</Event>

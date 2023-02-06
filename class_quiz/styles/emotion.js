@@ -5,23 +5,68 @@ export const Box = styled.div`
   display: flex;
   width: 640px;
   height: 1138px;
-  /* height: 1042px; */
   background: white;
   border: solid #dcdcdc;
 `;
 
-export const Title = styled.div`
-  display: flex;
-  justify-content: center;
+export const SearchIcon = styled.div`
   position: absolute;
-  width: 212px;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 50pt;
+  margin-right: 48pt;
+  width: 600px;
+  height: 32px;
+`;
+
+export const TitleBox = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  width: 600px;
   height: 64px;
   margin-top: 150px;
+`;
+
+export const Title = styled.div`
+  margin-right: 120px;
+  width: 212px;
+  height: 64px;
   font-family: "Noto Sans KR";
   font-style: normal;
   font-weight: 700;
   font-size: 40px;
   line-height: 58px;
+  color: #000000;
+`;
+
+export const UserProfile = styled.div`
+  display: flex;
+  align-items: center;
+  width: 200px;
+  height: 60px;
+`;
+
+export const UserPicture = styled.div`
+  display: flex;
+  width: 60px;
+  height: 60px;
+`;
+
+export const UserID = styled.div`
+  display: flex;
+  width: 67px;
+  height: 35px;
+  width: 67px;
+  height: 35px;
+  margin-left: 15px;
+  margin-right: 15px;
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 35px;
+  text-align: center;
   color: #000000;
 `;
 
@@ -32,7 +77,7 @@ export const NoticeBox = styled.div`
   width: 500px;
   height: 50px;
   margin-top: 250px;
-  margin-left: 45px;
+  margin-left: 40px;
 `;
 
 export const Notice = styled.div`
