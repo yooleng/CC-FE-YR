@@ -16,6 +16,8 @@ import {
   UserPicture,
   SearchIcon,
   ToggleBox,
+  MenuBox,
+  MenuText,
 } from "@/styles/emotion";
 
 export default function EatsRoadPage() {
@@ -80,7 +82,25 @@ export default function EatsRoadPage() {
               </ToggleBox>
             </QuestionsList>
           </QuestionsListBox>
-          <BottomBox></BottomBox>
+          <BottomBox>
+            <MenuBox>
+              <img src="/home.png" />
+              <MenuText></MenuText>
+              <p>홈</p>
+            </MenuBox>
+            <MenuBox>
+              <img src="/location.png" />
+              <p>잇츠로드</p>
+            </MenuBox>{" "}
+            <MenuBox>
+              <img src="/heart.png" />
+              <p>마이찜</p>
+            </MenuBox>
+            <MenuBox>
+              <img src="/user.png" />
+              <p>마이</p>
+            </MenuBox>
+          </BottomBox>
         </ContentsBox>
       </Box>
     </div>

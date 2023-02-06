@@ -136,12 +136,9 @@ export const QnA = styled.div`
 export const ContentsBox = styled.div`
   position: absolute;
   display: flex;
-  /* align-items: flex-end; */
   margin-top: 347px;
   width: 640px;
   height: 791px;
-
-  /* border: 1px solid yellow; */
 `;
 
 export const QuestionsListBox = styled.div`
@@ -154,8 +151,6 @@ export const QuestionsListBox = styled.div`
   padding-top: 30px;
   padding-bottom: 30px;
   border-top: 1px solid #cacaca;
-
-  /* border: 2px solid #ff1b6d; */
 `;
 
 export const QuestionsList = styled.div`
@@ -173,6 +168,17 @@ export const QuestionsList = styled.div`
   color: #000000;
 `;
 
+export const QuestionsNumber = styled.div`
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  /* identical to box height */
+
+  color: #adadad;
+`;
+
 export const ToggleBox = styled.div`
   display: flex;
   align-items: center;
@@ -183,12 +189,47 @@ export const ToggleBox = styled.div`
 
 export const BottomBox = styled.div`
   box-sizing: border-box;
-  position: absolute;
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-around;
   width: 640px;
   height: 96px;
-  /* border: solid red; */
+  padding: 10px;
   border-top: 1px solid #dcdcdc;
   margin-top: 695px;
+  /* border: 2px solid #ff1b6d; */
+`;
+
+export const MenuBox = styled.div`
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+  text-align: center;
+  color: #adadad;
+`;
+
+export const MenuText = styled.div`
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 20px;
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+  text-align: center;
+
+  color: #adadad;
 `;
