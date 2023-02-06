@@ -161,8 +161,9 @@ export const QuestionsListBox = styled.div`
 export const QuestionsList = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin-left: 65px;
-  width: 350px;
+  width: 510px;
   height: 60px;
   font-family: "Noto Sans KR";
   font-style: normal;
@@ -170,15 +171,21 @@ export const QuestionsList = styled.div`
   font-size: 24px;
   line-height: 35px;
   color: #000000;
+`;
 
-  /* border: 1px solid orange; */
+export const ToggleBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100px;
+  height: 50px;
 `;
 
 export const BottomBox = styled.div`
   box-sizing: border-box;
   position: absolute;
   display: flex;
-  align-items: flex-end;
+  justify-content: flex-end;
   width: 640px;
   height: 96px;
   /* border: solid red; */
