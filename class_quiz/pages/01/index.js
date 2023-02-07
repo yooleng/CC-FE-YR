@@ -85,8 +85,7 @@ export default function EatsRoadPage() {
           <BottomBox>
             <MenuBox>
               <img src="/home.png" />
-              <MenuText></MenuText>
-              <p>홈</p>
+              <MenuText></MenuText>홈
             </MenuBox>
             <MenuBox>
               <img src="/location.png" />
