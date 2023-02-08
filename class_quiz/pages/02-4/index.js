@@ -38,7 +38,7 @@ export default function SignupStatePage() {
 
   function onChangePasswordCheck(event) {
     setPasswordCheck(event.target.value);
-    if (password === passwordCheck) {
+    if (password === event.target.value) {
       setPasswordCheckError("입력된 비밀번호가 같습니다.");
       setIsPasswordCheck(true);
     } else {
