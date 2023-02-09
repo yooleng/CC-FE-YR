@@ -24,9 +24,6 @@ const CREATE_PRODUCT = gql`
 `;
 
 export default function GraphqlMutationPage() {
-  // 변수를 state에 저장하기
-  // const [] = useState("");
-
   const [myfunction] = useMutation(CREATE_PRODUCT);
 
   const onClickSubmit = async () => {
