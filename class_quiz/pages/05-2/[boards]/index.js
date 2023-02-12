@@ -37,7 +37,7 @@ export default function QuizPage6() {
 
   return (
     <>
-      <div>{router.query.name}상품이 등록되었습니다.</div>
+      <div>"{data?.fetchProduct.name}" 상품이 등록되었습니다.</div>
       <div>판매자: {data ? data.fetchProduct.seller : "로딩중입니다."}</div>
       <div>상품명: {data ? data.fetchProduct.name : "로딩중입니다."}</div>
       <div>상품내용: {data ? data.fetchProduct.detail : "로딩중입니다."}</div>
