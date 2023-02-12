@@ -52,7 +52,7 @@ export default function StaticRoutedPage() {
       {/* 삼항연산자 */}
       <div>제목: {data ? data.fetchBoard.title : "로딩중입니다."}</div>
       {/* 옵셔널 체이닝 */}
-      <div>내용: {data?.data.fetchBoard.contents}</div>
+      <div>내용: {data?.fetchBoard.contents}</div>
     </>
   );
 }
