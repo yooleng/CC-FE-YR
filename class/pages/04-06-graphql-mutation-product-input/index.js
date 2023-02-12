@@ -1,6 +1,7 @@
 // ----------------------------------------------------------------------------------
 // 04-06. graphql-mutation-product-input
 // ----------------------------------------------------------------------------------
+
 import { useMutation } from "@apollo/client";
 import { gql } from "@apollo/client";
 import { useState } from "react";
