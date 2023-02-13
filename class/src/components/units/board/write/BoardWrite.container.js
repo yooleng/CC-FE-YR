@@ -4,6 +4,7 @@
 
 import BoardWriteUI from "./BoardWrite.presenter";
 import { CREATE_BOARD } from "./BoardWrite.queries";
+
 import { useMutation } from "@apollo/client";
 import { useState } from "react";
 
