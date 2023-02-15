@@ -42,7 +42,8 @@ export const HeaderDelete = styled.div`
 
 export const DeleteButton = styled.div`
   // presenter에서 emotion으로 props 받기
-  border: 1px solid ${(props) => props.c};
+  border: ${(props) => (props.c ? "1px solid gray" : "1px solid black")};
+  /* border: 1px solid ${(props) => props.c}; */
   border-radius: 5px;
   padding: 5px;
   justify-content: center;
