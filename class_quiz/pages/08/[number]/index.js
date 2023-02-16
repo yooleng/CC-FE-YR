@@ -1,5 +1,5 @@
 // ----------------------------------------------------------------------------------
-// day 8 : 컴포넌트 재사용성과 수정 프로세스
+// day 8 ~ 9 : 컴포넌트 재사용성과 수정 프로세스
 // ----------------------------------------------------------------------------------
 // products - detail (상세 페이지)
 // ----------------------------------------------------------------------------------
@@ -20,22 +20,6 @@ export const FETCH_PRODUCT = gql`
     }
   }
 `;
-
-// export default function ProductsDetailPage() {
-//   const router = useRouter();
-//   console.log("router", router);
-//   console.log("router.query.number", router.query.number);
-
-//   const { data } = router.query.number
-//     ? useQuery(FETCH_PRODUCT, {
-//         variables: {
-//           productId: router.query.number,
-//         },
-//         refetchQueries: [{ query: FETCH_PRODUCT }],
-//       })
-//     : { data: undefined };
-
-//   console.log("data", data);
 
 export default function ProductsDetailPage() {
   const router = useRouter();
