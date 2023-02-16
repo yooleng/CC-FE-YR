@@ -21,9 +21,10 @@ export default function BoardWriteComponent(props) {
   const [myfunction] = useMutation(CREATE_BOARD);
   const [updateBoard] = useMutation(UPDATE_BOARD);
 
+  // 등록하기
   const onClickSubmit = async () => {
     // 이 함수에서는 router.query.number하면 안됨
-    // -> 경로가 08-05-boards-new 이기 때문에 주소에 number가 없음 : undefined
+    // -> 경로가 08-05-boards-new 이기 때문에 (number 생성 전) 주소에 number가 없음 : undefined
 
     // 스코프 체인
     const result = await myfunction({
@@ -42,7 +43,10 @@ export default function BoardWriteComponent(props) {
     router.push(`/09-01-boards/${result.data.createBoard.number}`);
   };
 
+  // 수정하기
   const onClickUpdate = async () => {
+    // 변경된 값만 백엔드에 보내주기 위한 코드
+    // 빈 값을 생성하고 바뀐 값만 if문으로 처리
     // 없는 것을 삭제하는 것보다, 빈 것을 만들고, 있는 것을 추가하는 것이 더 간단하다.
     const myvariables = {
       // number은 무조건 있어야 하는 값이므로 초기값으로 설정한다.
