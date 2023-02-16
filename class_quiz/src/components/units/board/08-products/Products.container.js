@@ -1,5 +1,5 @@
 // ----------------------------------------------------------------------------------
-// day 8 : 컴포넌트 재사용성과 수정 프로세스
+// day 8 ~ 9 : 컴포넌트 재사용성과 수정 프로세스
 // ----------------------------------------------------------------------------------
 // product.container - page의 js 로직 부분
 // ----------------------------------------------------------------------------------
@@ -119,6 +119,8 @@ export default function ProductsWriteComponent(props) {
         onChangePrice={onChangePrice}
         myColor={myColor}
         isEdit={props.isEdit}
+        data={props.data}
+        // edit page에서 받은 data 한 번 더 props로 보내주기
       />
     </>
   );
