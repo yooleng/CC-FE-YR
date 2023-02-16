@@ -34,8 +34,6 @@ export default function ProductsDetailPage() {
     refetchQueries: [{ query: FETCH_PRODUCT }],
   });
 
-  //   console.log("data", data);
-
   // 수정하러 이동하기 버튼 함수 생성
   const onClickMoveToEdit = () => {
     router.push(`/08/${router.query.number}/edit`);

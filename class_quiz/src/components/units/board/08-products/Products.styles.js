@@ -1,5 +1,5 @@
 // ----------------------------------------------------------------------------------
-// day 8 : 컴포넌트 재사용성과 수정 프로세스
+// day 8 ~ 9 : 컴포넌트 재사용성과 수정 프로세스
 // ----------------------------------------------------------------------------------
 // product.styles - page의 emotion 부분
 // ----------------------------------------------------------------------------------
@@ -18,7 +18,7 @@ export const EButton = styled.button`
   border: 2px solid gray;
   border-radius: 5px;
   cursor: pointer;
-  background-color: ${(props) => (props.ccc ? "gainsboro" : "white")};
+  background-color: ${(props) => (props.myColor ? "gainsboro" : "white")};
 `;
 
 export const EContentstBox = styled.div`
