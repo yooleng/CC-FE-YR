@@ -54,22 +54,24 @@ export default function ProductsWriteComponent(props) {
   // 수정하기
   const onClickUpdate = async () => {
     try {
+      // 변경된 값만 백엔드에 보내주기 위한 코드
+      // 빈 값을 생성하고 바뀐 값만 if문으로 처리
+      const myvariables = {
+        productId: router.query.number,
+        updateProductInput: {},
+      };
+      if (name) myvariables.updateProductInput.name = name;
+      if (detail) myvariables.updateProductInput.detail = detail;
+      if (price) myvariables.updateProductInput.price = price;
+
       // 1. 수정하기 mutation 날리기
       const result = await updateProduct({
-        variables: {
-          // 주소에 있는 상품 번호 가져오기
-          productId: router.query.number,
-          // productId의 타입은 ID이므로 형을 변환하지 않는다.
-          updateProductInput: {
-            name,
-            detail,
-            price,
-          },
-        },
+        variables: myvariables,
       });
 
       // 2. 수정하고 상세페이지로 이동하기
-      console.log(result);
+      console.log("result", result);
+      console.log("myvariables", myvariables);
       alert(result.data.updateProduct.message);
       router.push(`/08/${result.data.updateProduct._id}`);
     } catch (error) {
@@ -119,8 +121,8 @@ export default function ProductsWriteComponent(props) {
         onChangePrice={onChangePrice}
         myColor={myColor}
         isEdit={props.isEdit}
-        data={props.data}
         // edit page에서 받은 data 한 번 더 props로 보내주기
+        data={props.data}
       />
     </>
   );
