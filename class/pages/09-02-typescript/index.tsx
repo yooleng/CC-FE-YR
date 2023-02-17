@@ -38,6 +38,7 @@ export default function typescriptPage() {
     name: string;
     age: number | string;
     school: string;
+    hobby?: string; // ?: 있을 수도 있고, 없을 수도 있다.
   }
   const profile: IProfile = {
     name: "철수",
@@ -45,6 +46,7 @@ export default function typescriptPage() {
     school: "다람쥐 초등학교",
   };
   profile.age = "8살";
+  profile.hobby = "운동";
 
   // 함수 타입
   // 타입 추론이 안되는 이유? : 함수는 어디서 몇번이든 호출할 수 있으므로 미리 타입을 추론할 수 없음.
