@@ -4,22 +4,11 @@
 
 // export default와 export를 한 번에 사용하는 방법
 import * as S from "./BoardWrite.styles";
-import { ChangeEvent } from "react";
+import { IBoardWriteComponentUIProps } from "./BoardWrite.types";
 
-interface Iprops {
-  onClickSubmit: () => void;
-  onClickUpdate: () => void;
-  onChangeWriter: (event: ChangeEvent<HTMLInputElement>) => void;
-  onChangeTitle: (event: ChangeEvent<HTMLInputElement>) => void;
-  onChangeContents: (event: ChangeEvent<HTMLInputElement>) => void;
-  myColor: boolean;
-  isEdit: boolean;
-  data: any;
-  // void: return이 없는 타입
-  // data는 일단 any로 지정
-}
-
-export default function BoardWriteComponentUI(props: Iprops) {
+export default function BoardWriteComponentUI(
+  props: IBoardWriteComponentUIProps
+) {
   return (
     <>
       <div>### presenter ###</div>

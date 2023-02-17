@@ -4,8 +4,9 @@
 
 import BoardWriteComponentUI from "./BoardWrite.presenter";
 import { CREATE_BOARD, UPDATE_BOARD } from "./BoardWrite.queries";
+import { IBoardWriteComponentProps, IMyvariables } from "./BoardWrite.types";
 
-import { ChangeEvent, useState } from "react";
+import { useState, ChangeEvent } from "react";
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 
@@ -14,12 +15,7 @@ import { useRouter } from "next/router";
 // 수정페이지에서는 data라는 객체도 있으므로 타입에 추가해주어야 한다.
 // 단, 등록페이지에는 data가 없으므로, data는 있을수도, 없을수도 있는 객체 : ? 처리
 
-interface Iprops {
-  isEdit: boolean;
-  data?: any;
-}
-
-export default function BoardWriteComponent(props: Iprops) {
+export default function BoardWriteComponent(props: IBoardWriteComponentProps) {
   // 변수를 state에 저장하기
   const router = useRouter();
 
@@ -61,14 +57,6 @@ export default function BoardWriteComponent(props: Iprops) {
 
     // myvariables에서 number만 받고 있어서 number라고 자동으로 추론하므로 에러 발생
     // myvariables을 위한 타입을 생성해주어야 한다.
-
-    interface IMyvariables {
-      number: number;
-      writer?: string;
-      title?: string;
-      contents?: string;
-      // 수정 시 writer, title, contents는 없을 수도 있으므로 ? 처리
-    }
 
     const myvariables: IMyvariables = {
       // number은 무조건 있어야 하는 값이므로 초기값으로 설정한다.
