@@ -3,10 +3,11 @@
 // ----------------------------------------------------------------------------------
 
 import { ChangeEvent } from "react";
+import { IQuery } from "../../../../commons/types/generated/types";
 
 export interface IBoardWriteComponentProps {
   isEdit: boolean;
-  data?: any;
+  data?: Pick<IQuery, "fetchBoard">;
 }
 
 export interface IBoardWriteComponentUIProps {
@@ -17,9 +18,8 @@ export interface IBoardWriteComponentUIProps {
   onChangeContents: (event: ChangeEvent<HTMLInputElement>) => void;
   myColor: boolean;
   isEdit: boolean;
-  data: any;
+  data: Pick<IQuery, "fetchBoard">;
   // void: return이 없는 타입
-  // data는 일단 any로 지정
 }
 
 export interface IMyvariables {
