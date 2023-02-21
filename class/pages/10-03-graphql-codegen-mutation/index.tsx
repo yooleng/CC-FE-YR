@@ -2,8 +2,7 @@
 // 10-03. graphql-codegen-mutation - useMutation 타입 지정
 // ----------------------------------------------------------------------------------
 
-import { useMutation } from "@apollo/client";
-import { gql } from "@apollo/client";
+import { gql, useMutation } from "@apollo/client";
 import { ChangeEvent, useState } from "react";
 import {
   IMutation,
@@ -38,9 +37,9 @@ export default function GraphqlMutationPage() {
   const onClickSubmit = async () => {
     const result = await myfunction({
       variables: {
-        writer: writer,
-        title: title,
-        contents: contents,
+        writer,
+        title,
+        contents,
       },
     });
     console.log(result);
