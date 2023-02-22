@@ -4,7 +4,7 @@
 
 import React, { useState } from "react";
 
-export default function CounterStatePage() {
+export default function CounterPrevStatePage() {
   const [count, setCount] = useState(0); // 구조분해할당
 
   function onClickCountUp() {
