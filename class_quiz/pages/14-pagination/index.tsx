@@ -13,7 +13,7 @@ import styled from "@emotion/styled";
 
 const PageNumber = styled.span<{ isActive?: boolean }>`
   margin: 10px;
-  color: ${({ isActive }) => (isActive ? "blue" : "black")};
+  color: ${({ isActive }) => (isActive ? "#3950e5" : "black")};
 `;
 
 const FETCH_BOARDS = gql`
@@ -89,7 +89,7 @@ export default function StaticRoutedPage() {
         </div>
       ))}
 
-      <span onClick={onClickPrevPage}> &lt;</span>
+      <span onClick={onClickPrevPage}> &lt; </span>
       {new Array(10).fill(1).map((_, index) => {
         const pageNumber = index + startPage;
         const isActive = pageNumber === currentPage;
@@ -107,7 +107,7 @@ export default function StaticRoutedPage() {
           )
         );
       })}
-      <span onClick={onClickNextPage}> &gt;</span>
+      <span onClick={onClickNextPage}> &gt; </span>
     </>
   );
 }
