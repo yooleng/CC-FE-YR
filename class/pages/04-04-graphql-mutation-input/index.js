@@ -1,8 +1,8 @@
 // ----------------------------------------------------------------------------------
 // 04-04. graphql-mutation-input
 // ----------------------------------------------------------------------------------
-import { useMutation } from "@apollo/client";
-import { gql } from "@apollo/client";
+
+import { useMutation, gql } from "@apollo/client";
 import { useState } from "react";
 
 // 하드코딩 하지 않고, 사용자가 input창에 입력한 값을 가져오기 (동적)
