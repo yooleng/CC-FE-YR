@@ -1,0 +1,36 @@
+<!------------------------------------------------------------------------------------
+   16-02. this의 원리 이해하기
+------------------------------------------------------------------------------------->
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>this의 이해</title>
+    <script>
+      class Counter {
+        count = 10;
+
+        // 방법 1) 화살표 함수로 변경하는 방법
+        onClickButton = () => {
+          console.log("현재 카운트: ", this.count);
+        };
+
+        render() {
+          const button = document.createElement("button");
+          button.count = 100;
+          button.innerText = "클릭하세요";
+
+          // 방법 2) .bind(this)를 통해 연결시키는 방법
+          button.addEventListener("click", this.onClickButton.bind(this));
+          document.body.appendChild(button); // body 안에 button이라는 자식을 추가해라
+        }
+      }
+
+      window.onload = function () {
+        const counter = new Counter();
+        counter.render();
+      };
+    </script>
+  </head>
+  <body></body>
+</html>
