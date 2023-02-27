@@ -1,5 +1,5 @@
 // ----------------------------------------------------------------------------------
-// 15-04. infinite-scroller
+// 15-04. infinite-scroller (무한스크롤)
 // ----------------------------------------------------------------------------------
 
 import { useQuery, gql } from "@apollo/client";
@@ -57,7 +57,7 @@ export default function StaticRoutedPage() {
         >
           {data?.fetchBoards.map((el) => (
             <div key={el._id}>
-              <span style={{ margin: "10px" }}>{el.writer} </span>
+              <span style={{ margin: "10px" }}>{el.writer}</span>
               <span style={{ margin: "10px" }}>{el.title}</span>
             </div>
           )) ?? <div></div>}
