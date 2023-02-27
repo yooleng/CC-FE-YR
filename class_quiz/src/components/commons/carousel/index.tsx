@@ -29,7 +29,7 @@ export default class Carousel extends Component {
                 style={{
                   width: "100%",
                   height: "200px",
-                  backgroundColor: "tomato",
+                  backgroundColor: "#3535356e",
                 }}
               ></div>
             </div>
@@ -39,12 +39,26 @@ export default class Carousel extends Component {
           </div>
           <div>
             <h3>3</h3>
+            <div
+              style={{
+                width: "100%",
+                height: "200px",
+                backgroundColor: "#3535356e",
+              }}
+            ></div>
           </div>
           <div>
             <h3>4</h3>
           </div>
           <div>
             <h3>5</h3>
+            <div
+              style={{
+                width: "100%",
+                height: "200px",
+                backgroundColor: "#3535356e",
+              }}
+            ></div>
           </div>
           <div>
             <h3>6</h3>
