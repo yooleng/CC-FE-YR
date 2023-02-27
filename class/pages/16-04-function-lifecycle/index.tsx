@@ -16,7 +16,7 @@ export default function ClassCounterPage() {
   // }
   useEffect(() => {
     console.log("그려지고 나서 실행");
-  }, []);
+  }, []); // 조건을 비워두니까 무조건 실행되는 처음 한 번 이후에 실행되지 않음!!
 
   // componentDidUpdate() {
   //   console.log("변경되고 나서 실행!");
