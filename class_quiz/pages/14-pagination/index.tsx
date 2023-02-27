@@ -9,12 +9,7 @@ import {
   IQueryFetchBoardsArgs,
   IQueryFetchBoardsCountArgs,
 } from "../../src/commons/types/generated/types";
-import styled from "@emotion/styled";
-
-const PageNumber = styled.span<{ isActive?: boolean }>`
-  margin: 10px;
-  color: ${({ isActive }) => (isActive ? "#3950e5" : "black")};
-`;
+import { ContextBox, ListBox, BeforeAfterButton, PageNumber } from "./emotion";
 
 const FETCH_BOARDS = gql`
   query fetchBoards($page: Int) {
@@ -82,32 +77,36 @@ export default function StaticRoutedPage() {
 
   return (
     <>
-      {data?.fetchBoards.map((el) => (
-        <div key={el._id}>
-          <span style={{ margin: "10px" }}>{el.writer}</span>
-          <span style={{ margin: "10px" }}>{el.title}</span>
-        </div>
-      ))}
+      <ContextBox>
+        <ListBox>
+          {data?.fetchBoards.map((el) => (
+            <div key={el._id}>
+              <span style={{ margin: "10px" }}>{el.writer}</span>
+              <span style={{ margin: "10px" }}>{el.title}</span>
+            </div>
+          ))}
+        </ListBox>
 
-      <span onClick={onClickPrevPage}> &lt; </span>
-      {new Array(10).fill(1).map((_, index) => {
-        const pageNumber = index + startPage;
-        const isActive = pageNumber === currentPage;
+        <BeforeAfterButton onClick={onClickPrevPage}> &lt; </BeforeAfterButton>
+        {new Array(10).fill(1).map((_, index) => {
+          const pageNumber = index + startPage;
+          const isActive = pageNumber === currentPage;
 
-        return (
-          index + startPage <= lastPage && (
-            <PageNumber
-              key={index + startPage}
-              id={String(index + startPage)}
-              onClick={onClickPage}
-              isActive={isActive}
-            >
-              {index + startPage}
-            </PageNumber>
-          )
-        );
-      })}
-      <span onClick={onClickNextPage}> &gt; </span>
+          return (
+            index + startPage <= lastPage && (
+              <PageNumber
+                key={index + startPage}
+                id={String(index + startPage)}
+                onClick={onClickPage}
+                isActive={isActive}
+              >
+                {index + startPage}
+              </PageNumber>
+            )
+          );
+        })}
+        <BeforeAfterButton onClick={onClickNextPage}> &gt; </BeforeAfterButton>
+      </ContextBox>
     </>
   );
 }
