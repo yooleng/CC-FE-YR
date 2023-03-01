@@ -28,7 +28,7 @@ export default function MyComponent() {
 
   const onClickMove = () => {
     // void router.push("/");
-    void router.push("../3-open-api");
+    void router.push("../3-open-api/01");
   };
 
   return (
