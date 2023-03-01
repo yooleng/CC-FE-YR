@@ -21,7 +21,7 @@ export default function ComponentLifecyclePage() {
   useEffect(() => {
     console.log("Changed!!");
     alert("Changed!!");
-  });
+  }, [isChange]);
 
   const onClickIsChange = () => {
     setIsChange(true);
