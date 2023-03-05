@@ -2,7 +2,7 @@
 // 18-01. firebase
 // ----------------------------------------------------------------------------------
 
-import { firebaseApp } from "../_app";
+import { firebaseApp } from "../../src/commons/libraries/firebase";
 import {
   collection,
   addDoc,
