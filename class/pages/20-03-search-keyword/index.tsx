@@ -37,7 +37,6 @@ export default function StaticRoutedPage() {
     void refetch({ page: Number(event.currentTarget.id) });
     // 검색에서 refetch 할 때, 사용한 search 검색어가 저장되어 있는 상태이므로 추가로 search를 포함시키지 않아도 됨
   };
-
   // onChange가 될 때마다 refetch가 되는 것이 아니라, debouncing이 되도록 수정
 
   const getDebounce = _.debounce((value) => {
@@ -65,7 +64,7 @@ export default function StaticRoutedPage() {
               .split("#$%")
               .map((el) => (
                 <span
-                  key={uuidv4}
+                  key={uuidv4()}
                   style={{ color: el === keyword ? "red" : "black" }}
                 >
                   {el}
