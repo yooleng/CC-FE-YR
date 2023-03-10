@@ -1,5 +1,5 @@
 // ----------------------------------------------------------------------------------
-//  21-06. global-state - store
+//  global-state - store
 // ----------------------------------------------------------------------------------
 
 import { atom } from "recoil";
@@ -7,4 +7,9 @@ import { atom } from "recoil";
 export const isEditState = atom({
   key: "isEditState",
   default: false,
+});
+
+export const accessTokenState = atom({
+  key: "accessTokenState",
+  default: "",
 });
