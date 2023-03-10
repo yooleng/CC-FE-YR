@@ -9,6 +9,8 @@ import {
   ApolloLink,
 } from "@apollo/client";
 import { createUploadLink } from "apollo-upload-client";
+import { useRecoilState } from "recoil";
+import { accessTokenState } from "../../../commons/store";
 
 const GLOBAL_STATE = new InMemoryCache(); // globalState!
 interface IApolloSettingProps {
@@ -16,9 +18,15 @@ interface IApolloSettingProps {
 }
 
 export default function ApolloSetting(props: IApolloSettingProps) {
+  // globalState에서 accessToken 뽑아오기
+  const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+
   const uploadLink = createUploadLink({
     // 이 uri로 업로드 기능이 가능하도록 변경해준 것
     uri: "http://backendonline.codebootcamp.co.kr/graphql",
+
+    // 헤더에 accessToken을 추가해줌 -> 앞으로 모든 api에는 토큰이 첨부되어 들어간다. (없는 경우에는 빈 문자열)
+    headers: { Authorization: `Bearer ${accessToken}` },
   });
 
   const client = new ApolloClient({
