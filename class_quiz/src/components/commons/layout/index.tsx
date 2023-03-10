@@ -1,12 +1,13 @@
 // ----------------------------------------------------------------------------------
-// day 13. Layout
+//  day 13. Layout
 // ----------------------------------------------------------------------------------
 
-import styled from "@emotion/styled";
 import LayoutBanner from "./banner";
 import LayoutFooter from "./footer";
 import LayoutHeader from "./header";
 import LayoutNavigation from "./navigation";
+import styled from "@emotion/styled";
+import { useRouter } from "next/router";
 
 interface ILayoutProps {
   children: JSX.Element;
@@ -27,6 +28,9 @@ const Container = styled.div`
 `;
 
 export default function Layout(props: ILayoutProps) {
+  const router = useRouter();
+  console.log(router.asPath);
+
   return (
     <>
       <LayoutHeader />
