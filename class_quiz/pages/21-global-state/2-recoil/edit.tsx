@@ -5,7 +5,7 @@
 
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-import { isEditState } from "../../../src/components/commons/store";
+import { isEditState } from "../../../src/commons/store";
 import BoardWrite from "../../../src/components/units/21-example/write/BoardWrite.container";
 
 export default function GlobalStatePage() {
