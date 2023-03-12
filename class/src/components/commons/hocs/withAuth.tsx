@@ -11,7 +11,7 @@ export const withAuth = (Component: any) => (props: any) => {
   useEffect(() => {
     if (!localStorage.getItem("accessToken")) {
       alert("로그인 후 이용 가능합니다!");
-      void router.push("/23-03-login-check");
+      void router.push("/23-08-login-check-hoc");
     }
   }, []);
 
