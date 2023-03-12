@@ -9,6 +9,7 @@ import {
   ApolloLink,
 } from "@apollo/client";
 import { createUploadLink } from "apollo-upload-client";
+import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../../commons/store";
 
@@ -21,6 +22,50 @@ interface IApolloSettingProps {
 export default function ApolloSetting(props: IApolloSettingProps) {
   // globalState에서 accessToken 뽑아오기
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+
+  // -------------------------------------------------------------------------------
+  // 브라우저에서 실행되는 코드인지, 서버에서 실행되는 코드인지 구분하는 방법
+
+  // // 1. 프리렌더링 예제 - process.browser 방법
+
+  // // process.browser : 지금 현재 브라우저 상태인가요?
+  // if (process.browser) {
+  //   // console.log("지금은 브라우저!!");
+  //   // const result = localStorage.getItem("accessToken");
+  //   // console.log(result);
+  //   // if (result) setAccessToken(result);
+  // } else {
+  //   // console.log("지금은 프론트엔드 서버!!(yarn dev로 실행시킨 프로그램 내부)");
+  //   // const result = localStorage.getItem("accessToken");
+  //   // console.log(result);
+  //   // if (result) setAccessToken(result);
+  // }
+
+  // // 2. 프리렌더링 예제 - typeof window 방법
+
+  // if (typeof window !== "undefined") {
+  //   // console.log("지금은 브라우저!!");
+  //   // const result = localStorage.getItem("accessToken");
+  //   // console.log(result);
+  //   // if (result) setAccessToken(result);
+  // } else {
+  //   // console.log("지금은 프론트엔드 서버!!(yarn dev로 실행시킨 프로그램 내부)");
+  //   // const result = localStorage.getItem("accessToken");
+  //   // console.log(result);
+  //   // if (result) setAccessToken(result);
+  // }
+
+  // // 3. 프리렌더링 무시 - useEffect() 방법 (componentDidMount 시점)
+  // // useEffect : DOM이 만들어지고(화면이 그려지고) 실행됨 -> 서버 X, 브라우저 O
+
+  useEffect(() => {
+    console.log("지금은 브라우저!!");
+    const result = localStorage.getItem("accessToken");
+    console.log(result);
+    if (result) setAccessToken(result);
+  }, []);
+
+  // -------------------------------------------------------------------------------
 
   const uploadLink = createUploadLink({
     // 이 uri로 업로드 기능이 가능하도록 변경해준 것
