@@ -37,7 +37,7 @@ export default function StaticRoutedPage() {
     <>
       {data?.fetchBoards.map((el) => (
         <div key={el._id}>
-          <span style={{ margin: "10px" }}>{el.writer} </span>
+          <span style={{ margin: "10px" }}>{el.writer}</span>
           <span style={{ margin: "10px" }}>{el.title}</span>
         </div>
       ))}
