@@ -19,7 +19,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/components/commons/14-lifting-state-up/emotion.jsx"
+    "src/components/units/14-lifting-state-up/emotion.jsx"
   ],
   "exclude": ["node_modules"]
 }
