@@ -1,0 +1,39 @@
+// ----------------------------------------------------------------------------------
+//  25-01. destructuring (구조분해할당) - 02-array-with-useState.txt
+// ----------------------------------------------------------------------------------
+
+function useState(aaa) {
+  const myState = aaa; // aaa를 사용햇 state의 초기값 설정
+  
+  const mySetState = (bbb) => {
+    // 1. bbb로 myState 변경하기
+    console.log(`${myState}에서 ${bbb}로 myState를 변경하겠습니다.`);
+    // 2. 해당 컴포넌트를 리렌더링 시키기 (render 함수)
+    console.log(`변경된 ${bbb}를 사용해서 컴포넌트를 리렌더링 하겠습니다.`);
+  };
+
+  return [myState, mySetState];
+}
+// undefined
+
+const [count, setCount] = useState(10);
+// undefined
+
+count;
+// 10
+
+setCount(20);
+// 10에서 20로 myState를 변경하겠습니다.
+// 변경된 20를 사용해서 컴포넌트를 리렌더링 하겠습니다.
+// undefined
+
+const qqq = useState("철수");
+// undefined
+
+qqq[0];
+// '철수'
+
+qqq[1]("훈이");
+// 철수에서 훈이로 myState를 변경하겠습니다.
+// 변경된 훈이를 사용해서 컴포넌트를 리렌더링 하겠습니다.
+// undefined
