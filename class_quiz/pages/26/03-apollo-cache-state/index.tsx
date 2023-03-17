@@ -98,7 +98,7 @@ export default function StaticRoutedPage() {
         <div key={el._id}>
           <span style={{ margin: "10px" }}>{el.writer} </span>
           <span style={{ margin: "10px" }}>{el.title}</span>
-          <button onClick={onClickDelete(el._id)}>삭제하기</button>
+          <button onClick={onClickDelete(el._id)}> X </button>
         </div>
       ))}
       <button onClick={onClickCreate}>등록하기</button>
