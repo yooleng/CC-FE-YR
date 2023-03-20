@@ -1,0 +1,29 @@
+<!--------------------------------------------------------------------------------
+   28-02. eventloop 
+--------------------------------------------------------------------------------->
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>Eventloop</title>
+    <script>
+      const onclickLoop = () => {
+        console.log("시작!!");
+
+        setTimeout(() => {
+          console.log("0초 뒤에 실행될 거에요!");
+        }, 0);
+
+        let sum = 0;
+        for (let i = 0; i <= 9000000000; ++i) {
+          sum += 1;
+        }
+
+        console.log("끝!!!");
+      };
+    </script>
+  </head>
+  <body>
+    <button onclick="onclickLoop()">시작하기</button>
+  </body>
+</html>
