@@ -1,0 +1,48 @@
+<!--------------------------------------------------------------------------------
+   29-04. macro-micro-queue
+--------------------------------------------------------------------------------->
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>Eventloop</title>
+    <script>
+      const onclickLoop = () => {
+        console.log("시작!!");
+
+        // 비동기작업(테스크큐에 들어감)
+        setTimeout(() => {
+          new Promise((resolve) => resolve("철수")).then(() => {
+            console.log("저는 Promise! setTimeout 안에서 실행될 거에요!!");
+          });
+          console.log("저는 setTimeout! 매크로큐! 0초 뒤에 실행될 거에요!");
+        }, 0);
+
+        // 비동기작업(마이크로큐에 들어감)
+        new Promise((resolve) => resolve("철수")).then(() => {
+          console.log("저는 Promise(1)! 마이크로큐! 0초 뒤에 실행될 거에요!");
+        });
+
+        // 비동기작업(테스크큐에 들어감)
+        setInterval(() => {
+          console.log("저는 setInterval! 매크로큐! 0초마다 실행될 거에요!");
+        }, 0);
+
+        let sum = 0;
+        for (let i = 0; i <= 9000000000; ++i) {
+          sum += 1;
+        }
+
+        // 비동기작업(마이크로큐에 들어감)
+        new Promise((resolve) => resolve("영희")).then(() => {
+          console.log("저는 Promise(2)! 마이크로큐! 0초 뒤에 실행될 거에요!");
+        });
+
+        console.log("끝!!!");
+      };
+    </script>
+  </head>
+  <body>
+    <button onclick="onclickLoop()">시작하기</button>
+  </body>
+</html>
