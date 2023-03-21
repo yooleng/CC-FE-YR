@@ -1,0 +1,99 @@
+<!----------------------------------------------------------------------------------
+   29-01. callback-promise-async.await
+----------------------------------------------------------------------------------->
+
+<!-- 1. 랜덤한 숫자를 가지고 오는 API : `http://numbersapi.com/random?min=1&max=200`  -->
+<!-- 2. post API:  `https://koreanjson.com/posts/${num}`  -->
+<!-- 3. 유저가 쓴 다른 글 API : `https://koreanjson.com/posts?userId=${userId}` -->
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>콜백과 친구들</title>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+            // function addEventListener(aaa, qqq) {
+            //   if (aaa) {
+            //     const result = "철수";
+            //     qqq(result);
+            //   }
+            // }
+
+            const myCallback = () => {
+                const aaa = new XMLHttpRequest();
+                aaa.open("get", `http://numbersapi.com/random?min=1&max=200`);
+                aaa.send();
+                aaa.addEventListener("load", function (res) {
+                    console.log("1번)", res);
+                    const num = res.target.response.split(" ")[0]; // 랜덤 숫자 뽑기
+
+                    const bbb = new XMLHttpRequest();
+                    bbb.open("get", `https://koreanjson.com/posts/${num}`);
+                    bbb.send();
+                    bbb.addEventListener("load", (res) => {
+                        console.log("2번)", res);
+                        const userId = JSON.parse(res.target.response).UserId;
+
+                        const ccc = new XMLHttpRequest();
+                        ccc.open("get", `https://koreanjson.com/posts?userId=${userId}`);
+                        ccc.send();
+                        ccc.addEventListener("load", (res) => {
+                            console.log("3번)", res);
+                        });
+                    });
+                });
+            };
+
+            // new Promise((resolve, reject) => {
+            //         try {
+            //             // 여기서 API 요청을 한다면?
+            //             const result = "철수";
+            //             resolve(result); // 성공
+            //         } catch (error) {
+            //             reject("실패했습니다!"); // 실패
+            //         }
+            //     })
+            //         .then((res) => {
+            //             console.log(res); // 철수
+            //         })
+            //         .catch((err) => {
+            //             console.log(err); // 실패했습니다!
+            //         });
+
+            const myPromise = () => {
+                console.log("1번째로 실행됩니다!");
+                axios
+                    .get(`http://numbersapi.com/random?min=1&max=200`)
+                    .then((res) => {
+                        console.log("2번째로 실행됩니다!");
+                        return axios.get(`https://koreanjson.com/posts/${num}`);
+                    })
+                    .then((res) => {
+                        console.log("3번째로 실행됩니다!");
+                        return axios.get(`https://koreanjson.com/posts?userId=${userId}`);
+                    })
+                    .then((res) => {
+                        // res 최종 결과
+                        console.log("4번째로 실행됩니다!");
+                    });
+                console.log("5번째로 실행됩니다!");
+            };
+
+            // axios, fetch 등 => 대표적인 Promise (.then 등의 기능)를 지원하는 기능
+            // axios, fetch 등을 기다리는 2가지 방법
+            // 1. .then() 활용
+            // 2. await 활용 => 주의) await는 아무데나 붙인다고 뒤의 것을 기다리는게 아니다!
+
+            const myAsyncAwait = async () => {
+                await axios.get(`http://numbersapi.com/random?min=1&max=200`);
+                await axios.get(`https://koreanjson.com/posts/${num}`);
+                await axios.get(`https://koreanjson.com/posts?userId=${userId}`);
+            };
+        </script>
+    </head>
+    <body>
+        <button onclick="myCallback()">Callback 연습하기!</button>
+        <button onclick="myPromise()">Promise 연습하기!</button>
+        <button onclick="myAsyncAwait()">AsyncAwait 연습하기!</button>
+    </body>
+</html>
