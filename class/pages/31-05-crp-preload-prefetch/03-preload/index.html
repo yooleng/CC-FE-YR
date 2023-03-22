@@ -1,0 +1,31 @@
+<!--------------------------------------------------------------------------------
+   31-05-03. crp-preload-prefetch / 03-preload
+--------------------------------------------------------------------------------->
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>preload</title>
+
+    <!-- 프리로드: 한 번에 6개씩 받아오므로, body태그의 이미지는 가장 마지막에 다운로드 -->
+    <!--         눈에 보이는 이미지를 먼저 다운로드 받아서 보여주고, 클릭하면 실행되는 JS는 나중에 받아오기 -->
+    <!--         따라서, DOMContentedLoaded 이후, Load까지 완료되는 최종 로드 시간이 더 짧아짐 -->
+    <link rel="preload" as="image" href="./dog.jpeg" />
+
+    <!-- 프리로드 대신 프리패치: 다음을 위해 미리 받는 것으로, 현재 페이지에서는 가장 마지막에 다운로드(dog.jpeg 총 두 번 다운로드) -->
+    <!-- 따라서, 현재 페이지에서 사용한다면 preload를 써야 함 -->
+    <!-- <link rel="prefetch" as="image" href="./dog.jpeg" /> -->
+
+    <!-- 일반로드 -->
+    <link rel="stylesheet" href="./index.css" />
+    <script src="./index1.js"></script>
+    <script src="./index2.js"></script>
+    <script src="./index3.js"></script>
+    <script src="./index4.js"></script>
+    <script src="./index5.js"></script>
+    <script src="./index6.js"></script>
+  </head>
+  <body>
+    <img src="./dog.jpeg" />
+  </body>
+</html>
