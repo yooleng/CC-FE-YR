@@ -5,11 +5,11 @@
 import { gql, GraphQLClient } from "graphql-request";
 
 const RESTORE_ACCESS_TOKEN = gql`
-mutation restoreAccessToken {
-  restoreAccessToken () {
-    accessToken
+  mutation restoreAccessToken {
+    restoreAccessToken {
+      accessToken
+    }
   }
-}
 `;
 
 export const getAccessToken = async () => {
