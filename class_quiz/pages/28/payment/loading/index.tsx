@@ -62,7 +62,7 @@ export default function PaymentLoadingPage() {
 
   return (
     <>
-      <Checkbox value="500" onChange={onChangeCheckbox}>
+      {/* <Checkbox value="500" onChange={onChangeCheckbox}>
         500원
       </Checkbox>
       <Checkbox value="1000" onChange={onChangeCheckbox}>
@@ -73,9 +73,9 @@ export default function PaymentLoadingPage() {
       </Checkbox>
       <Checkbox value="5000" onChange={onChangeCheckbox}>
         5000원
-      </Checkbox>
+      </Checkbox> */}
 
-      {/* <label>
+      <label>
         <input
           type="checkbox"
           name="payment"
@@ -114,7 +114,7 @@ export default function PaymentLoadingPage() {
           onChange={onChangeCheckbox}
         />
         5000원
-      </label> */}
+      </label>
       <Head>
         <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
       </Head>
