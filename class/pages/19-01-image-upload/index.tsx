@@ -28,7 +28,7 @@ export default function ImageUploadPage() {
   >(UPLOAD_FILE);
 
   const onChangeFile = async (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0]; // 파일이 있다면 0번쨰를 가져와줘
+    const file = event.target.files?.[0]; // 파일이 있다면 0번째를 가져와줘
     console.log("# file", file);
 
     // uploadFile로 받아온 결과를 result 변수에 담음
