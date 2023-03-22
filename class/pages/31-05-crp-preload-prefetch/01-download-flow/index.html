@@ -1,0 +1,26 @@
+<!--------------------------------------------------------------------------------
+   31-05-01. crp-preload-prefetch / 01-download-flow
+--------------------------------------------------------------------------------->
+
+<!-- 
+
+  << 리소스 다운로드 순서 >>
+  1. HTML 파일의 모든 다운로드 주소를 읽어들인 후, 백그라운드에서 6개씩 다운로드
+  2. <head /> 태그부터 읽기 시작
+  3. <script /> 태그의 "정지!" 라는 구문에서 화면은 멈추고 다운로드는 pending
+
+ -->
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>리소스 다운로드 순서</title>
+    <script>
+      alert("정지!!");
+    </script>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <script src="./index.js"></script>
+  </body>
+</html>
