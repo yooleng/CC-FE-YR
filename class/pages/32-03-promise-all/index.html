@@ -1,0 +1,68 @@
+<!--------------------------------------------------------------------------------
+   32-03. promise-all
+--------------------------------------------------------------------------------->
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>Promise all</title>
+    <script>
+      // 하나씩 보내기
+      const startPromise = async () => {
+        // console.time : 같은 이름에 대해서 time ~ timeEnd까지 얼마나 걸렸는지 로그 찍어주기
+        console.time("=== 개별 Promise 각각 ===");
+
+        const result1 = await new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve("성공");
+          }, 2000);
+        });
+
+        const result2 = await new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve("성공");
+          }, 3000);
+        });
+
+        const result3 = await new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve("성공");
+          }, 1000);
+        });
+        console.timeEnd("=== 개별 Promise 각각 ===");
+      };
+
+      // 동시에 한꺼번에 보내기
+      const startPromiseAll = async () => {
+        // await Promise.all([promise, promise, promise]); // 이런 형식으로 사용
+
+        console.time("=== 한방 Promise.all ===");
+
+        const result = await Promise.all([
+          new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve("성공1");
+            }, 2000);
+          }),
+
+          new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve("성공2");
+            }, 3000);
+          }),
+          new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve("성공3");
+            }, 1000);
+          }),
+        ]);
+        console.log("result", result);
+        console.timeEnd("=== 한방 Promise.all ===");
+      };
+    </script>
+  </head>
+  <body>
+    <button onclick="startPromise()">promise 연습하기!</button>
+    <button onclick="startPromiseAll()">promise.all 연습하기!</button>
+  </body>
+</html>
