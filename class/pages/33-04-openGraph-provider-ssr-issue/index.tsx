@@ -27,29 +27,23 @@ export default function OpengraphProviderPage(props: any) {
   return (
     <>
       <Head>
-        <meta property="og: title" content={props?.qqq.fetchUseditem.name} />
-        <meta
-          property="og: description"
-          content={props?.qqq.fetchUseditem.remarks}
-        />
-        <meta
-          property="og: image"
-          content={props?.qqq.fetchUseditem.images?.[0]}
-        />
+        <meta property="og: title" content={props?.qqq.name} />
+        <meta property="og: description" content={props?.qqq.remarks} />
+        <meta property="og: image" content={props?.qqq.images?.[0]} />
       </Head>
       {/* 여기는 body이므로 미리보기와는 상관없음! */}
       <div>중고마켓에 오신 것을 환영합니다! </div>
 
       {/* 이미지 로드가 실패했을 때 어떤 이미지였는지 추측이라도 할 수 있음 */}
-      <img src="111111" alt="강아지이미지.jpg" />
+      <img src="dog3.webp" alt="강아지이미지.jpg" />
     </>
   );
 }
 
-// getServerDideProps는 Next.js에서 자체적으로 읽는 단어이므로 임의로 변경 불가
+// getServerSideProps는 Next.js에서 자체적으로 읽는 단어이므로 임의로 변경 불가
 // 여기는 서버에서만 실행됨 (Webpack 프론트엔드 서버프로그램)
 
-export const getServerDideProps = async () => {
+export const getServerSideProps = async () => {
   console.log("여기는 서버입니다.");
   // 1. 여기서 API 요청
   const graphQLClient = new GraphQLClient(

@@ -81,7 +81,7 @@ export default function ApolloSetting(props: IApolloSettingProps) {
     // 1-1. 에러를 캐치
     if (graphQLErrors) {
       for (const err of graphQLErrors) {
-        // 1-2. 해당 에러가 토큰만료 에러인지 체크라기(UNAUTHENTICATED)
+        // 1-2. 해당 에러가 토큰만료 에러인지 체크하기(UNAUTHENTICATED)
         if (err.extensions.code === "UNAUTHENTICATED") {
           return fromPromise(
             // 2-1. refreshToken으로 accessToken을 재발급 받기 : 분리한 파일 import
